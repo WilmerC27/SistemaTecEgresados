@@ -109,11 +109,10 @@ if (isset($_POST['enviar'])) {
                     </p>
                     <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
                     href='http://20.120.154.2/Sistema-egresados/validacion.php?id=$id&token=$token'>
+                    <img src='http://20.120.154.2/Sistema-egresados/img/token.png' alt='logo' width='600'
+                            style='text-align:center' />
                     </td>
-                    <td>
-                        <img src='http://20.120.154.2/Sistema-egresados/img/token.png' alt='logo' width='130' height='80'
-                            style='text-align:left' />
-                    </td>
+                    <tr>
             </thead>
         </table>
         <br>

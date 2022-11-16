@@ -75,11 +75,9 @@ try {
                     solo tardará 20 minutos en completarlo. Envíe su respuesta antes del 22/11/2022. 
                     Gracias</p>
                     </p>
-                    </td>
-                    <td>
-                        <img src='http://20.120.154.2/Sistema-egresados/img/QR.jpeg' alt='logo' width='130' height='80'
+                        <img src='http://20.120.154.2/Sistema-egresados/img/QR.jpeg' alt='logo' width='250' height='250'
                             style='text-align:center' />
-                    </td>
+                    </td><br>
                     </tr>
             </thead>
         </table>
@@ -98,7 +96,6 @@ try {
                                     href='https://www.cancun.tecnm.mx' target='_blank'>Política de privacidad y manejo de datos
                                     personales</a>
                             </p>
-
             </tbody>
             </thead>
         </table>";
