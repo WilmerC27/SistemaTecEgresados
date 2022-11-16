@@ -1,4 +1,5 @@
 function editarAlumno(id) {
+  
   Swal.fire({
     title: '¿Deseas Editar este Alumno?',
     // text: "",
@@ -11,7 +12,7 @@ function editarAlumno(id) {
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = `token.php`;
+      window.location.href = `token.php?id=${id}`;
     }
   })
 }

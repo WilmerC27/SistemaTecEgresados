@@ -1,7 +1,4 @@
-<?php include './includes/templates/header.php';
-  session_start();
-  $_SESSION['EgID'] = '0';
-   ?>
+<?php include './includes/templates/header.php';?>
 
 <div class="col-10 col-md-8 col-lg-6 col-xl-4 shadow-sm my-4">
     <form action="alumno.php" method="POST" class="bg-white py-4 needs-validation" novalidate>
@@ -13,23 +10,23 @@
             </div>
             <div class="col-md-12 my-2">
                 <label for="nombre" class="form-label fw-semibold">Nombre(s):</label>
-                <input id="nombre" type="text" name="nombre" placeholder="Nombre" required class="form-control">
+                <input id="nombre" type="text" name="nombre" minlength="2" placeholder="Nombre" required class="form-control">
                 <div class="invalid-feedback">
-                    El nombre es obligatorio
+                    El nombre es obligatorio y debe tener mas de un caracter.
                 </div>
             </div>
             <div class="col-md-12 my-2">
                 <label for="ap_p" class="form-label fw-semibold">Apellido Paterno: </label>
-                <input id="ap_p" type="text" name="ap_p" placeholder="Apellido paterno" required class="form-control">
+                <input id="ap_p" type="text" name="ap_p" minlength="2" placeholder="Apellido paterno" required class="form-control">
                 <div class="invalid-feedback">
-                    El apellido paterno es obligatorio
+                    El apellido paterno es obligatorio y debe tener mas de un caracter.
                 </div>
             </div>
             <div class="col-md-12 mt-2">
                 <label for="ap_m" class="form-label fw-semibold">Apellido Paterno:</label>
-                <input id="ap_m" type="text" name="ap_m" placeholder="Apellido materno" required class="form-control">
+                <input id="ap_m" type="text" name="ap_m" minlength="2" placeholder="Apellido materno" required class="form-control">
                 <div class="invalid-feedback">
-                    El apellido materno es obligatorio
+                    El apellido materno es obligatorio y debe tener mas de un caracter.
                 </div>
             </div>
             <div class="d-flex justify-content-center col-md-12 my-2">

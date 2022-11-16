@@ -1,8 +1,7 @@
+    
     <?php
     include './includes/templates/header.php';
-    include("conexion.php");
-    
-    session_start();
+    include("./process/conexion.php");
     
     $conectar = new Conexion();
     $con = $conectar->conectar();
@@ -48,8 +47,7 @@
                     <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($query)) {
-                            $_SESSION['EgID']= $row['EgID'];
-                            $ID = $_SESSION['EgID'];
+                            
                             while ($name = mysqli_fetch_array($query2)) {
                             
                         ?>

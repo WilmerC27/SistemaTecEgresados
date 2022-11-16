@@ -1,10 +1,11 @@
     <?php
     include './includes/templates/header.php';
-    include("conexion.php");
+    include("./process/conexion.php");
     $conectar = new Conexion();
     $con = $conectar->conectar();
+    
     $name = $_POST['control'];
-    session_start();
+   
     if ($name == '') {
         header("Location: index.php?");
     }
@@ -45,7 +46,6 @@
                         <?php
                         while ($row = mysqli_fetch_array($query)) {
                             while ($name = mysqli_fetch_array($cuery)) {
-                                $_SESSION['EgID'] = $row['EgID'];
                         ?>
                                 <tr class="text-center align-middle">
                                     <td><?php echo $row['EgControl'] ?></td>

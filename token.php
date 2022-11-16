@@ -1,16 +1,19 @@
 <?php
-include './includes/templates/header.php';
 
+include './includes/templates/header.php';
+$id = $_GET['id'];
 ?>
 <input type="checkbox" name="error" id="error" disabled class="d-none" <?php echo isset($_GET['error']) ? 'checked' : null  ?>>
 <div class="col-10 col-md-8 col-lg-6 col-xl-4 mt-3 mb-5 shadow-sm px-3 py-4 bg-white">
-    <form action="correo.php" method="POST" class="needs-validation" novalidate>
+    <form action="./process/correo.php" method="POST" class="needs-validation" novalidate>
         <div>
             <h2 class="text-center text-uppercase">Obtener Código</h2>
             <p>Para poder editar tu informacion se requiere un codigo de acceso, puedes solicitarlo mediante un correo electronico</p>
         </div>
         <div>
+       <!-- <input type="hidden" name="id" value=" // echo $id?>">-->
             <label for="email" class="form-label fw-semibold">Correo Electrónico:</label>
+            <input type="hidden" name="id" value="<?php echo $id ?>" >
             <input type="text" id="email" name="email" placeholder="tecnm@cancun.tecnm.mx" required class="form-control">
             <div class="invalid-feedback">
                 El correo electrónico es obligatorio
@@ -26,7 +29,8 @@ include './includes/templates/header.php';
 <script src="./js/searchAlumn.js"></script>
 <script src="./js/captcha.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<?php include './includes/templates/footer.php' ?>
+<?php include './includes/templates/footer.php'?>
+
 <style>
     a {
         text-decoration: none;
