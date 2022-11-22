@@ -6,13 +6,13 @@
         <div class="px-4">
             <div>
                 <h1 class="fs-2 text-center">Buscar Alumno</h1>
-                <p>Por favor ingresa tu matricula o numero de control para continuar.</p>
+                <p>Por favor ingresa tu matrícula o numero de control para continuar.</p>
             </div>
             <div class="col-md-12 my-2">
                 <label for="nombre" class="form-label fw-semibold">No. Control:</label>
                 <input maxlength="9" id="nombre" type="text" name="control" placeholder="Ejemplo (11223344 o D11223344)" required class="form-control">
                 <div class="invalid-feedback">
-                    La matricula es obligatoria
+                    La matrícula es obligatoria
                 </div>
             </div>
            

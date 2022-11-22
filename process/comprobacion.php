@@ -1,5 +1,4 @@
 <?php
-ob_start();
 include('conexion.php');
 $conectar = new Conexion();
 $con = $conectar->conectar();
@@ -15,5 +14,4 @@ while ($fila = mysqli_fetch_row($query)) {
     return;
 }
 sleep(3);
-header("Location: ../validacion.php?error=true&id=". urlencode($id));
-ob_end_flush();   
+header("Location: ../token.php?error=true&id=". urlencode($id));   

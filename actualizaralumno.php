@@ -74,7 +74,7 @@ if (isset($id)) {
                 <div id="form-tel" class="d-flex gap-2 me-2">
                   <div class="col-12 col-md-6">
                     <label for="CodTel" class="form-label fw-semibold text-uppercase">Código País</label>
-                    <input type="number" class="form-control" id="CodTel" name="CodTel" placeholder="Codigo de Telefono" value="52" required>
+                    <input type="number" class="form-control" id="CodTel" name="CodTel" placeholder="Código de Teléfono" value="52" required>
                     <div class="invalid-feedback mb-3">
                       Este campo es obligatorio
                     </div>
@@ -86,7 +86,7 @@ if (isset($id)) {
               <td>
                 <div class="col-12 col-md-6">
                   <label for="Num_Tel" class="form-label fw-semibold text-uppercase">Teléfono</label>
-                  <input type="tel" class="form-control" id="Num_Tel" name="Num_Tel" maxlength="10" placeholder="Telefono" value="<?php echo $row['EgTel']  ?>" required>
+                  <input type="tel" class="form-control" id="Num_Tel" name="Num_Tel" maxlength="10" placeholder="Teléfono" value="<?php echo $row['EgTel']  ?>" required>
                   <div class="invalid-feedback mb-6">
                     Este campo es obligatorio
                   </div>

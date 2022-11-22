@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(error){
         Swal.fire({
             title: '¡CLAVE INCORRECTA!',
-            text: 'Lo sentimos, no has ingresado una clave valida, por favor, vuelve a intentarlo',
+            text: 'Lo sentimos, no has ingresado una clave valida o tu token ya ha sido usado.',
             icon: 'error',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Ok'

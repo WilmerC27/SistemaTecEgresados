@@ -10,9 +10,9 @@
             </div>
             <div class="col-md-12 my-2">
                 <label for="nombre" class="form-label fw-semibold">Nombre(s):</label>
-                <input id="nombre" type="text" name="control" placeholder="Matricula (8 digitos)" required class="form-control">
+                <input id="nombre" type="text" name="control" placeholder="Matrícula (8 digitos)" required class="form-control">
                 <div class="invalid-feedback">
-                    La matricula es obligatoria
+                    La matrícula es obligatoria
                 </div>
             </div>
            

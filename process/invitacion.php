@@ -4,67 +4,27 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require ('../vendor/autoload.php');
 include('conexion.php');
 
 $mail = new PHPMailer(true);
-$id =$_POST['id'];
-$Correo = $_POST['email'];
-
-function getToken($len)
-{
-    $t0k3n = "";
-    $cadena = bin2hex(openssl_random_pseudo_bytes(16));
-    //FUNCION FOR PARA GENERAR EL ARREGLO
-    for ($i = 0; $i < $len; $i++) {
-        $t0k3n .= $cadena[rand(0, $len)];
-    }
-    return $t0k3n;
-}
-$tok = getToken(6);
-$token = mb_strtoupper($tok);
+$id = $_GET['id'];
 
 //PROCESO DE ALMACENADO EN LA BASE DE DATOS
 $conectar = new Conexion();
 $link = $conectar->conectar();
 date_default_timezone_set('America/Mexico_City');
-$Fecha = date("F j, Y, g:i a");
 $copy = date ("Y");
-
 $sql = "SELECT * FROM egegresado  WHERE  EgID = $id";
 $query = mysqli_query($link, $sql);
 $num_rows = mysqli_num_rows($query);
 while ($row = mysqli_fetch_array($query)) {
     $nombre = $row['EgNombre'];
     $apellido = $row['EgApPaterno'];
+    $Correo = $row['EgEmail'];
 }
 
-$insertar = "INSERT INTO validacion ( ID_Usuario, Token, Fecha, Correo) VALUES ('$id','$token','$Fecha','$Correo')";
-$ejecutar = mysqli_query($link, $insertar);
-//PROCEDIMIENTO DE ENVIO DEL CORREO
-//GUARDAMOS EL VALOR OBTENIDO DEL ARREGLO EN LA VARIABLE T0K3N NOMBRADA ASI PARA DIFERENCIARLA
-if (isset($_POST['enviar'])) {
-    $captcha_response = true;
-    $recaptcha = $_POST['g-recaptcha-response'];
-
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
-    $data = array(
-        'secret' => '6Ldt-YQhAAAAANNyrrXlB6cWdMGqZlzWPCf4DLBB',
-        'response' => $recaptcha
-    );
-    $options = array(
-        'http' => array(
-            'method' => 'POST',
-            'content' => http_build_query($data)
-        )
-    );
-    $context  = stream_context_create($options);
-    $verify = file_get_contents($url, false, $context);
-    $captcha_success = json_decode($verify);
-    $captcha_response = $captcha_success->success;
-
-    if ($captcha_response) {
-        try {
+try {
             //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->isSMTP();
             $mail->CharSet = 'UTF-8';
@@ -75,7 +35,7 @@ if (isset($_POST['enviar'])) {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; //llave del host
             $mail->Port = 587; //puerto del host
             //SECCIÓN DE ASIGNACIÓN DE USUARIOS A ENVIAR EL CORREO
-            $mail->setFrom('comite_egresados@cancun.tecnm.mx', 'Sistema de egresados del TECNM'); //'usuario conectado al host','Nombre del dpto que envia el correo'
+            $mail->setFrom('comite_egresados@cancun.tecnm.mx', 'Invitación de envento'); //'usuario conectado al host','Nombre del dpto que envia el correo'
             $mail->addAddress($Correo, $Correo); //'usuario ingresado', 'Para: Usuario ingresado'
             //CONTENIDO DEL CORREO A ENVIAR
             $mail->isHTML(true);
@@ -100,19 +60,18 @@ if (isset($_POST['enviar'])) {
             <thead style='background: #FAFAFA;'>
                 <tr>
                     <td>
-                    <p style='text-align:center'> Hola $nombre $apellido bienvenido al sistema de egresados del TECNM<br>
-                    para continuar con la actualización de tus datos:<br>
-                    <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
-                    href='http://20.120.154.2/Sistema-egresados/validacion.php?id=$id&token=$token'>
-                    Ingresa a este link para obtener tu token</a>
-                    </p>
-                    <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
-                    href='http://20.120.154.2/Sistema-egresados/validacion.php?id=$id&token=$token'><br>
-                    <img src='http://20.120.154.2/Sistema-egresados/img/token.png' alt='logo' width='390' height='240'
-                            style='text-align:center' /><br>
+                    <p style='text-align:center'> Hola $nombre $apellido!.<br>
+                    <p style='text-align:center'> El motivo de este mensaje es para hacerte una extensa invitación a participar en el evento<br>
+                    'Ceremonia de egresados 2022' que se realizará el día viernes 25 de noviembre a las 19:00<br>
+                    la ubicación es en la planta alta del centro de información (biblioteca) de nuestra casa de estudios<br>
+                    <p style='text-align:center'>¡Muchisimas gracias te esperamos no faltes.!</p>
+                    <img src='http://20.120.154.2/Sistema-egresados/img/invitacion.jpeg' alt='logo' width='600'
+                            style='text-align:center' />
                     </td>
+                    </tr>
             </thead>
         </table>
+        <br>
         <!--- Division de texto con el copyright -->
         <table width='90%' style='text-align:center'>
             <tbody>
@@ -135,15 +94,7 @@ if (isset($_POST['enviar'])) {
 
             //REGRESAR A LA PANTALLA PRINCIPAL DESPUES DE EJECUTAR EL PROCEDIMIENTO
             sleep(3);
-            header("Location: ../espera.php");
+            header("Location: ../index.php");
         } catch (Exception $e) {
             echo 'Mensaje ' . $mail->ErrorInfo;
         }
-    } else {
-        sleep(3);
-        // Se abre una sesión.
-
-
-        header("Location: ../token.php?error=true");
-    }
-}

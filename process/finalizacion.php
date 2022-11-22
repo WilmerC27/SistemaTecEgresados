@@ -61,12 +61,9 @@ try {
                 <tr>
                     <td>
                     <p style='text-align:center'> Hola $nombre $apellido muchas gracias tus datos han sido actualizado correctamente.<br>
-                    <p style='text-align:center'> De igual forma te hacemos una extensa invitación a participar en el evento<br>
-                    'Ceremonia de egresados 2022' que se realizará el día viernes 25 de noviembre a las 19:00<br>
-                    la ubicación es en la planta alta del centro de información (biblioteca) de nuestra casa de estudios<br>
-                    Te pedimos de favor que nos ayudes a llenar la siguiente encuesta<br>
-                    antes del día de la ceremonia como pre-registro y actualización de tus datos.</p>
-                    <p style='text-align:center'>¡Muchisimas gracias te esperamos no faltes.!</p>
+                    <p style='text-align:center'>Te pedimos de favor que nos ayudes a llenar la siguiente encuesta<br>
+                    antes del día 25 de noviembre del 2022, como pre-registro y actualización de tus datos.</p>
+                    <p style='text-align:center'>¡Muchísimas gracias te esperamos no faltes.!</p>
                     <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
                     href='https://forms.office.com/r/ymphLrziRX'>
                     FORMULARIO</a>
@@ -75,9 +72,7 @@ try {
                     solo tardará 20 minutos en completarlo. Envíe su respuesta antes del 22/11/2022. 
                     Gracias</p>
                     </p>
-                    </td>
-                    <td>
-                        <img src='http://20.120.154.2/Sistema-egresados/img/QR.jpeg' alt='logo' width='130' height='80'
+                    <img src='http://20.120.154.2/Sistema-egresados/img/QR.jpeg' alt='logo' width='250' height='250'
                             style='text-align:center' />
                     </td>
                     </tr>
@@ -106,7 +101,7 @@ try {
 
             //REGRESAR A LA PANTALLA PRINCIPAL DESPUES DE EJECUTAR EL PROCEDIMIENTO
             sleep(3);
-            header("Location: ../index.php");
+            header("Location: invitacion.php?id=".urlencode($id));
         } catch (Exception $e) {
             echo 'Mensaje ' . $mail->ErrorInfo;
         }
