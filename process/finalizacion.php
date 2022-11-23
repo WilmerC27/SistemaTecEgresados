@@ -21,9 +21,13 @@ $num_rows = mysqli_num_rows($query);
 while ($row = mysqli_fetch_array($query)) {
     $nombre = $row['EgNombre'];
     $apellido = $row['EgApPaterno'];
+    $materno = $row['EgApMaterno'];
     $Correo = $row['EgEmail'];
+    $control = $row['EgControl'];
+    $carrera = $row['EgCarrera'];
 }
-
+$insertar = "INSERT INTO egconfirmacion (EgNombre, EgControl,Carrera) VALUES ('$nombre $apellido $materno','$control','$carrera')";
+$ejecutar = mysqli_query($link, $insertar);
 try {
             //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->isSMTP();

@@ -64,9 +64,11 @@ try {
                     <p style='text-align:center'> El motivo de este mensaje es para hacerte una extensa invitación a participar en el evento<br>
                     'Ceremonia de egresados 2022' que se realizará el día viernes 25 de noviembre a las 19:00<br>
                     la ubicación es en la planta alta del centro de información (biblioteca) de nuestra casa de estudios<br>
-                    <p style='text-align:center'>¡Muchisimas gracias te esperamos no faltes.!</p>
+                    <p style='text-align:center'>¡Muchisimas gracias te esperamos no faltes.!</p><br>
+                    <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
+                    href='http://20.120.154.2/Sistema-egresados/asistencia.php?id=$id'> Confirmo mi asistencia</a><br>
                     <img src='http://20.120.154.2/Sistema-egresados/img/invitacion.jpeg' alt='logo' width='600'
-                            style='text-align:center' />
+                            style='text-align:center' />      
                     </td>
                     </tr>
             </thead>
