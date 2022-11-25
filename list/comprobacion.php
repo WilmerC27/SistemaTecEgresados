@@ -7,10 +7,23 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 include("../process/conexion.php");
 $name = $_GET['id'];
+$status = $_GET['status'];
 $conectar = new Conexion();
 $con = $conectar->conectar();
 $mail = new PHPMailer(true);
+$estado = '';
 
+switch ($status) {
+    case 1:
+        $estado = "P";
+        break;
+    case 2:
+        $estado = "N_T";
+        break;
+    case 3:
+        $estado = "T";
+        break;
+}
 $sql = "SELECT * FROM egegresado  WHERE  EgID = $name";
 $query = mysqli_query($con, $sql);
 
@@ -27,12 +40,15 @@ date_default_timezone_set('America/Mexico_City');
 $fecha = date("F j, Y, g:i a");
 $asistencia = 1;
 
-if ($correo === '' OR $telefono === '') {
+if ($correo === '' or $telefono === '') {
     header("Location: editar.php?id=" . urlencode($name));
 } else {
 
-$sql = "INSERT INTO egasistencia (EgNombre, EgApPaterno, EgApMaterno, EgControl, EgEmail, EgTelefono, Asistencia, FechaAsist) VALUES ('$nombre', '$paterno', '$materno', '$matricula', '$correo', '$telefono', '$asistencia', '$fecha')";
-$ejecutar = mysqli_query($con, $sql);
+    $sql = "INSERT INTO egasistencia (EgNombre, EgApPaterno, EgApMaterno, EgControl, EgEmail, EgTelefono, Asistencia, FechaAsist) VALUES ('$nombre', '$paterno', '$materno', '$matricula', '$correo', '$telefono', '$asistencia', '$fecha')";
+    $ejecutar = mysqli_query($con, $sql);
+
+    $sql = "UPDATE EgEgresado SET  Titulacion ='$estado' WHERE EgID = $name";
+    $ejecutar = mysqli_query($con, $sql);
 
     try {
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -51,7 +67,7 @@ $ejecutar = mysqli_query($con, $sql);
         $mail->isHTML(true);
         $mail->Subject = 'Confirmacion de asistencia';
         $mail->Body =
-"<table width='100%' height='80'>
+            "<table width='100%' height='80'>
     <tbody>
         <tr>
             <td>
@@ -66,12 +82,18 @@ $ejecutar = mysqli_query($con, $sql);
     </tbody>
 </table>
 
-<table width='90%'>
+<table style='text-align:center'width='90%'>
     <thead style='background: #FAFAFA;'>
         <tr>
             <td> 
-            <p style='text-align:left'>Hola $nombre $paterno! </p>
-            <p style='text-align:left'>BIENVENIDO AL EVENTO PARA LOS ALUMNOS EGRESADOS DEL TECNM CAMPUS CANCUN</p>
+            <p style='text-align:center'>Hola $nombre $paterno! </p>
+            <p style='text-align:center'>BIENVENIDO AL EVENTO PARA LOS ALUMNOS EGRESADOS DEL TECNM CAMPUS CANCUN<br>
+            <a style='background-color: '#314771'; color: 'white'; padding: '15px 25px'; text-decoration: 'none';'
+                    href='https://forms.office.com/r/ymphLrziRX'>
+                    FORMULARIO</a>
+            </p>
+            <img src='http://20.120.154.2/Sistema-egresados/img/QR.jpeg' alt='logo' width='250' height='250'
+                            style='text-align:center' />
             </td>
         </tr>
     </thead>

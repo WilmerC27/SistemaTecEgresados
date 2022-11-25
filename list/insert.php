@@ -15,6 +15,3 @@ while ($row = mysqli_fetch_array($query)) {
     $correo = $row['EgEmail'];
     $telefono = $row['EgTel'];
 }
-
-?>
-

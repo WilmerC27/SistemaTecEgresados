@@ -15,17 +15,21 @@ $id = $_GET['id'];
             </div>
             <div class="mb-3">
                 <label for="code" class="form-label">Codigo de acceso</label>
-                <input type="text" id="code" name="code" placeholder="Codigo de acceso" value= "<?php echo $token?>"required class="form-control">
+                <input type="text" id="code" name="code" placeholder="Codigo de acceso" value="<?php echo $token ?>" required class="form-control">
             </div>
             <div class="d-flex justify-content-end">
-                <button type="submit" name="validar" class="btn btn-primary" >Validar identidad </button>
+                <button type="submit" name="validar" class="btn btn-primary">Validar identidad </button>
             </div>
             <div>
-            <input type="hidden" id="id" name="id" value= "<?php echo $id?>">
+                <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
             </div>
         </div>
     </form>
 </div>
 <script src="./js/validacionToken.js"></script>
 <?php include './includes/templates/footer.php' ?>
-<style>a{text-decoration: none;}</style>
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

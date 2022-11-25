@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const error = document.querySelector('input[type="checkbox"]').checked;
     console.log(error);
-    if(error){
+    if (error) {
         mostrarAlerta();
     }
 });
@@ -13,5 +13,5 @@ const mostrarAlerta = () => {
         icon: 'error',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok'
-      })
+    })
 }

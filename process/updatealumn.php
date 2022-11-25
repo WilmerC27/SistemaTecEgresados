@@ -22,7 +22,7 @@ $query = mysqli_query($con, $sql);
 $delete = "DELETE FROM Validacion WHERE ID_Usuario=$id";
 $query2 = mysqli_query($con, $delete);
 sleep(3);
-header("Location: finalizacion.php?id=". urlencode($id));
+header("Location: finalizacion.php?id=" . urlencode($id));
 ?>
 <style>
     a {

@@ -8,7 +8,7 @@ require '../vendor/autoload.php';
 include('conexion.php');
 
 $mail = new PHPMailer(true);
-$id =$_POST['id'];
+$id = $_POST['id'];
 $Correo = $_POST['email'];
 
 function getToken($len)
@@ -29,7 +29,7 @@ $conectar = new Conexion();
 $link = $conectar->conectar();
 date_default_timezone_set('America/Mexico_City');
 $Fecha = date("F j, Y, g:i a");
-$copy = date ("Y");
+$copy = date("Y");
 
 $sql = "SELECT * FROM egegresado  WHERE  EgID = $id";
 $query = mysqli_query($link, $sql);
@@ -80,8 +80,8 @@ if (isset($_POST['enviar'])) {
             //CONTENIDO DEL CORREO A ENVIAR
             $mail->isHTML(true);
             $mail->Subject = 'Validacion de su correo electronico';
-            $mail->Body = 
-"<table width='100%'>
+            $mail->Body =
+                "<table width='100%'>
             <tbody>
                 <tr>
                     <td>

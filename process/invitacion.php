@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require ('../vendor/autoload.php');
+require('../vendor/autoload.php');
 include('conexion.php');
 
 $mail = new PHPMailer(true);
@@ -14,7 +14,7 @@ $id = $_GET['id'];
 $conectar = new Conexion();
 $link = $conectar->conectar();
 date_default_timezone_set('America/Mexico_City');
-$copy = date ("Y");
+$copy = date("Y");
 $sql = "SELECT * FROM egegresado  WHERE  EgID = $id";
 $query = mysqli_query($link, $sql);
 $num_rows = mysqli_num_rows($query);
@@ -25,23 +25,23 @@ while ($row = mysqli_fetch_array($query)) {
 }
 
 try {
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->isSMTP();
-            $mail->CharSet = 'UTF-8';
-            $mail->Host = 'smtp-mail.outlook.com'; //llave del host
-            $mail->SMTPAuth = true;
-            $mail->Username = 'comite_egresados@cancun.tecnm.mx';
-            $mail->Password = 'Com-voc-70';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; //llave del host
-            $mail->Port = 587; //puerto del host
-            //SECCIÓN DE ASIGNACIÓN DE USUARIOS A ENVIAR EL CORREO
-            $mail->setFrom('comite_egresados@cancun.tecnm.mx', 'Invitación de envento'); //'usuario conectado al host','Nombre del dpto que envia el correo'
-            $mail->addAddress($Correo, $Correo); //'usuario ingresado', 'Para: Usuario ingresado'
-            //CONTENIDO DEL CORREO A ENVIAR
-            $mail->isHTML(true);
-            $mail->Subject = 'Validacion de su correo electronico';
-            $mail->Body = 
-"<table width='100%'>
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->isSMTP();
+    $mail->CharSet = 'UTF-8';
+    $mail->Host = 'smtp-mail.outlook.com'; //llave del host
+    $mail->SMTPAuth = true;
+    $mail->Username = 'comite_egresados@cancun.tecnm.mx';
+    $mail->Password = 'Com-voc-70';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; //llave del host
+    $mail->Port = 587; //puerto del host
+    //SECCIÓN DE ASIGNACIÓN DE USUARIOS A ENVIAR EL CORREO
+    $mail->setFrom('comite_egresados@cancun.tecnm.mx', 'Invitación de envento'); //'usuario conectado al host','Nombre del dpto que envia el correo'
+    $mail->addAddress($Correo, $Correo); //'usuario ingresado', 'Para: Usuario ingresado'
+    //CONTENIDO DEL CORREO A ENVIAR
+    $mail->isHTML(true);
+    $mail->Subject = 'Validacion de su correo electronico';
+    $mail->Body =
+        "<table width='100%'>
             <tbody>
                 <tr>
                     <td>
@@ -92,11 +92,11 @@ try {
             </tbody>
             </thead>
         </table>";
-            $mail->send();
+    $mail->send();
 
-            //REGRESAR A LA PANTALLA PRINCIPAL DESPUES DE EJECUTAR EL PROCEDIMIENTO
-            sleep(3);
-            header("Location: ../index.php");
-        } catch (Exception $e) {
-            echo 'Mensaje ' . $mail->ErrorInfo;
-        }
+    //REGRESAR A LA PANTALLA PRINCIPAL DESPUES DE EJECUTAR EL PROCEDIMIENTO
+    sleep(3);
+    header("Location: ../index.php");
+} catch (Exception $e) {
+    echo 'Mensaje ' . $mail->ErrorInfo;
+}

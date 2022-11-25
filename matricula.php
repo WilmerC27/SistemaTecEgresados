@@ -15,12 +15,12 @@
                     La matrícula es obligatoria
                 </div>
             </div>
-           
+
             <div class="d-flex justify-content-end">
                 <button type="submit" name="buscar" class="btn btn-primary mt-4 text-right">Buscar Alumno</button>
             </div>
         </div>
     </form>
-    </div>
+</div>
 <script src="./js/searchAlumn.js"></script>
 <?php include './includes/templates/footer.php' ?>

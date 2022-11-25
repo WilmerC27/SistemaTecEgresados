@@ -1,8 +1,7 @@
-    
     <?php
     include './includes/templates/header.php';
     include("./process/conexion.php");
-    
+
     $conectar = new Conexion();
     $con = $conectar->conectar();
     $name = $_POST['nombre'];
@@ -11,17 +10,17 @@
     if ($name == '' && $last == '' && $second == '') {
         header("Location: index.php");
     }
-//Realizamos la busqueda del egresado con los datos obtenidos por el usuario
+    //Realizamos la busqueda del egresado con los datos obtenidos por el usuario
     $sql = "SELECT * FROM egegresado  WHERE  EgNombre LIKE '%$name%' and EgApPaterno LIKE '%$last%' and EgApMaterno LIKE '%$second%'";
     $query = mysqli_query($con, $sql);
     $num_rows = mysqli_num_rows($query);
-//Realizamos una consulta para obtener en un string la carrera que cursó el egresado
+    //Realizamos una consulta para obtener en un string la carrera que cursó el egresado
     $carrera = "SELECT * FROM egegresado  WHERE  EgNombre LIKE '%$name%' and EgApPaterno LIKE '%$last%' and EgApMaterno LIKE '%$second%'";
     $execute = mysqli_query($con, $carrera);
     if ($wor = mysqli_fetch_array($execute)) {
         $arr = $wor['EgCarrera'];
     }
-//Realizamos nuevamente una consulta para obtener el nombre de la carrera
+    //Realizamos nuevamente una consulta para obtener el nombre de la carrera
     $consulta = "SELECT * FROM egcarreras WHERE EgIdCarrera = $arr";
     $query2 = mysqli_query($con, $consulta);
 
@@ -47,11 +46,11 @@
                     <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($query)) {
-                            
+
                             while ($name = mysqli_fetch_array($query2)) {
-                            
+
                         ?>
-                            
+
                                 <tr class="text-center align-middle">
                                     <td><?php echo $row['EgControl'] ?></td>
                                     <td><?php echo $row['EgNombre'] ?></td>
@@ -63,10 +62,10 @@
                                     <td><?php echo $row['EgEmail'] ?></td>
                                     <!-- <td><?php echo $row['Pass'] ?></td>-->
                                     <td>
-                                        <button class="btn btn-danger fw-bold" onclick="editarAlumno('<?php echo $row['EgID']?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
+                                        <button class="btn btn-danger fw-bold" onclick="editarAlumno('<?php echo $row['EgID'] ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
                                         <!-- <a href="token.php?id=<?php echo $row['EgControl'] ?>" class="btn btn-danger fw-bold">Editar</a> -->
                                     </td>
-                                </tr>               
+                                </tr>
 
                         <?php
                             }
@@ -77,7 +76,7 @@
             </div>
         <?php } else { ?>
             <h3 class="text-center">Lo sentimos, no hemos encontrado al alumno ingresado</h3>
-        <?php } 
+        <?php }
         ?>
     </div>
     <script src="./js/alumno.js"></script>
@@ -87,4 +86,8 @@
         console.log("Los datos son: ", datos);
     </script>
     <?php include './includes/templates/footer.php'; ?>
-    <style>a{text-decoration: none;}</style>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>

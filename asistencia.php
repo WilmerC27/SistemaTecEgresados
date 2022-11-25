@@ -1,4 +1,4 @@
-<?php 
+<?php
 include './includes/templates/header.php';
 include("./process/conexion.php");
 
@@ -25,14 +25,18 @@ $query = mysqli_query($con, $sql);
         <div class="px-4">
             <div>
                 <h1 class="fs-2 text-center">Confirmación de asistencia</h1>
-                <p> ¡Muchas gracias <?php echo $nombre?> <?php echo $apellido?>! <br>
-                Por tu confirmación de asistencia al evento de egresados,<br> te esperamos.</p>
+                <p> ¡Muchas gracias <?php echo $nombre ?> <?php echo $apellido ?>! <br>
+                    Por tu confirmación de asistencia al evento de egresados,<br> te esperamos.</p>
                 <img src='http://20.120.154.2/Sistema-egresados/img/invitacion.jpeg' alt='logo' width='450' style='text-align:center' />
             </div>
-            
+
         </div>
     </form>
 </div>
 <script src="./js/searchAlumn.js"></script>
 <?php include './includes/templates/footer.php' ?>
-<style>a{text-decoration: none;}</style>
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

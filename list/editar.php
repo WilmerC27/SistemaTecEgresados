@@ -121,4 +121,8 @@ if (isset($id)) {
   <script src="../js/actualizadolista.js"></script>
   <script src="../js/actualizarAlumno.js"></script>
   <?php include '../includes/templates/footer.php'; ?>
-  <style> a {text-decoration: none;} </style>
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>

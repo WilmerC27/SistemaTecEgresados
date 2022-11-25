@@ -1,11 +1,11 @@
     <?php
-   include '../includes/templates/header.php';
-   include("../process/conexion.php");
+    include '../includes/templates/header.php';
+    include("../process/conexion.php");
     $conectar = new Conexion();
     $con = $conectar->conectar();
-    
+
     $name = $_POST['control'];
-   
+
     if ($name == '') {
         header("Location: index.php?");
     }
@@ -77,4 +77,8 @@
     </div>
     <script src="../js/attendance.js"></script>
     <?php include '../includes/templates/footer.php'; ?>
-    <style> a {text-decoration: none;} </style>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>

@@ -1,5 +1,5 @@
 function editarAlumno(id) {
-  
+
   Swal.fire({
     title: '¿Deseas Editar este Alumno?',
     // text: "",

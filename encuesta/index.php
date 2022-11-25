@@ -14,16 +14,16 @@
                 <div class="invalid-feedback">
                     La matricula es obligatoria
                 </div><br>
-            <div style='text-align:center'>
-            <input name="fecha" type="datetime-local" name="partydate" value="" />
+                <div style='text-align:center'>
+                    <input name="fecha" type="datetime-local" name="partydate" value="" />
                 </div>
             </div>
-           
+
             <div class="d-flex justify-content-end">
                 <button type="submit" name="encuestado" class="btn btn-primary mt-4 text-right">Guardar</button>
             </div>
         </div>
     </form>
-    </div>
+</div>
 <script src="../js/searchAlumn.js"></script>
 <?php include '../includes/templates/footer.php' ?>

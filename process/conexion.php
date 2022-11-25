@@ -12,4 +12,5 @@ class Conexion
         $con->set_charset('utf8');
         mysqli_select_db($con, $bd);
         return $con;
-}}
+    }
+}

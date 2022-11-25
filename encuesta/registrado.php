@@ -22,4 +22,3 @@ $query = mysqli_query($con, $sql);
 
 sleep(4);
 header("Location: index.php");
-?>
