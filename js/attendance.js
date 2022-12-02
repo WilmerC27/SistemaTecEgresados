@@ -1,4 +1,4 @@
-function editarAlumno(id) {
+function asistenciaAlumno(id) {
 
   Swal.fire({
     title: 'Antes de continuar, ¿Comó se encuentra el estatus de tú titulación?',
@@ -37,8 +37,8 @@ function editarAlumno(id) {
       confirmButtonText: 'Si, confirmar',
     }).then((result) => {
       Swal.fire({
-        title: '¡Alumno Egresado Actualizado!',
-        text: 'Hemos registrado todos tus cambios de manera correcta',
+        title: '¡Hola, bienvenido!',
+        text: '¡Hemos registrado tu asistencia al evento para egresados 2022!',
         icon: 'success',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok'

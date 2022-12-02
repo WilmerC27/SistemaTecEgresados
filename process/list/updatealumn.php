@@ -19,7 +19,7 @@ $sql = "UPDATE EgEgresado SET  EgCodigoTel='$codigo',EgTel='$telefono',EgEmail='
 $query = mysqli_query($con, $sql);
 
 sleep(4);
-header("Location: comprobacion.php?id=" . urlencode($id));
+header("Location: confirmacion.php?id=" . urlencode($id));
 ?>
 <style>
     a {

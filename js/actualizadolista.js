@@ -12,8 +12,8 @@
         event.stopPropagation()
       } else {
         Swal.fire({
-          title: '¡Alumno Egresado Actualizado!',
-          text: 'Hemos registrado todos tus cambios de manera correcta',
+          title: '¡Hola, bienvenido!',
+          text: 'Hemos registrado tu asistencia al evento para egresados 2022',
           icon: 'success',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Ok'

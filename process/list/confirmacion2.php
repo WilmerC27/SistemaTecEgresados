@@ -59,7 +59,7 @@
                                     <td><?php echo $row['EgEmail'] ?></td>
                                     <!-- <td><?php echo $row['Pass'] ?></td>-->
                                     <td>
-                                        <button type="submit" class="btn btn-success fw-bold" onclick="editarAlumno(<?php echo $row['EgID'] ?>)"><i class="fa-solid fa-check"></i> Asistencia</button>
+                                        <button type="submit" class="btn btn-success fw-bold" onclick="asistenciaAlumno(<?php echo $row['EgID'] ?>)"><i class="fa-solid fa-check"></i> Asistencia</button>
                                         <!-- <a href="token.php?id=<?php echo $row['EgID'] ?>" class="btn btn-danger fw-bold">Editar</a> -->
                                     </td>
                                 </tr>

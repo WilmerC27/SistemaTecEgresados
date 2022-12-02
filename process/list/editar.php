@@ -20,7 +20,7 @@ if (isset($id)) {
 ?>
 
   <div class="col-10 col-md-8 col-lg-6 mt-3 mb-4 shadow-sm px-3 py-4 bg-white">
-    <form action="../list/up" method="POST" class="bg-white needs-validation" novalidate>
+    <form action="../list/updatealumn.php" method="POST" class="bg-white needs-validation" novalidate>
 
       <input type="hidden" name="id" value="<?php echo $id ?>">
       <div>
