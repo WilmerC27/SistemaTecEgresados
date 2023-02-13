@@ -18,9 +18,7 @@
   $fingeneracion=chop(ltrim(strtoupper(htmlspecialchars($_POST['FinGeneracion'],ENT_QUOTES,'UTF-8'))));
   $finperiodo=chop(ltrim(strtoupper(htmlspecialchars($_POST['FinPeriodo'],ENT_QUOTES,'UTF-8'))));
   $planestudio=chop(ltrim(strtoupper(htmlspecialchars($_POST['PlanEstudio'],ENT_QUOTES,'UTF-8'))));
-  echo " ". $eg_id." ". $nombre." ". $apellidopaterno." ". $apellidomaterno." ". $correo." ". $codtel." "
-  . $telefono." ". $curp." ". $eg_id." ". $fechanac." ". $carrera." ". $ingeneracion." ". $inperiodo." "
-  . $fingeneracion." ". $finperiodo." ". $planestudio." ";
+ 
 
   $sql="INSERT INTO  EgEgresado(EgControl,EgNombre,EgApPaterno,EgApMaterno,EgEmail,EgCodigoTel,EgTel,EgCurp,EgFNac,EgCarrera,EgInicioGeneracion,EgInicioPeriodo,EgFinGeneracion,EgFinPeriodo,EgPlanEstudio)   VALUES('$eg_id','$nombre','$apellidopaterno','$apellidomaterno','$correo','$codtel','$telefono','$curp','$fechanac','$carrera','$ingeneracion','$inperiodo','$fingeneracion','$finperiodo','$planestudio'); ";
   $query=mysqli_query($con,$sql); 
