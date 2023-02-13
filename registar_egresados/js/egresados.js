@@ -83,8 +83,6 @@ function agregardatos (matricula,nombre,apellido_p,apellido_m,curp,fecha_nac,Cod
       FinPeriodo:FinPeriodo,
       PlanEstudio:PlanEstudio
       }
-     }).done(function(resp2){
-      //alert(resp2);
      })
      
     Swal.fire({
